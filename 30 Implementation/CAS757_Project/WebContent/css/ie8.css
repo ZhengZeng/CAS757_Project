@@ -1,0 +1,99 @@
+/* stub for IE8 specific rules */
+
+/*******************************
+         UI Components
+*******************************/
+.ui.bubble {
+    display: inline;
+}
+.data-list .actions .bubble {
+    width: auto;
+}
+.ui.well {
+    background-color: #DCDCDC;
+}
+.search.module.loading .prompt {
+    background-position: 10px -43px !important;
+}
+.search.module .results {
+    border: 1px solid #000000;
+}
+
+/*******************************
+            Layout
+*******************************/
+
+header.main .flyout {
+    border: 1px solid #AAAAAA;
+}
+
+/*******************************
+             Home
+*******************************/
+
+#home-app img:hover,
+#home-press .box a:hover {
+    opacity: 1;
+}
+
+
+/*******************************
+             Crates
+*******************************/
+
+#crate-content .influence-project ul li {
+    border: 1px solid #DADADA;
+}
+#crate-content .influence-project ul li.hover {
+    background-color: #FFFFFF;
+    border: 1px solid #888888;
+}
+
+/*******************************
+             Profile
+*******************************/
+
+#profile hgroup.title .btn-group {
+    width: 200px;
+}
+
+#profile .submissions.tab .filter {
+    width: 250px;
+}
+
+/*******************************
+             Blog
+*******************************/
+
+#blog .filter ul  {
+    display: inline;
+}
+#blog .page header .social a {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: alpha(opacity=60);
+}
+#blog .page header .social a:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+}
+#blog .masthead .arrow {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: alpha(opacity=60);
+}
+#blog .masthead .arrow.hover {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+}
+#blog .masthead .arrow.disabled {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+    filter: alpha(opacity=10);
+}
+
+
+/*******************************
+             About
+*******************************/
+
+#about .home.page .stats {
+    border: 1px solid #DADADA;
+}

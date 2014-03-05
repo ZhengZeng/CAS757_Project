@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.multipart.saveDir" value="/upload" />
+
+	<package name="defaultPackage" extends="struts-default">
+		<interceptors>
+
+			<interceptor name="sessionInterceptor"
+				class="edu.mcm.cas757.common.SessionInterceptor" />
+			<interceptor-stack name="sessionStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="sessionInterceptor">
+					<param name="includeMethods">initIdeaType,showIdeaPhase,saveIdeaContent,addPhaseTextName,addPhaseText,upload,savePriceSurveyQuestion,saveQuestionnaireSurvey,vote,VoteForIdeaPhase,UnVoteForIdeaPhase,AddComment,AddCommentReply</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="sessionStack"></default-interceptor-ref>
+
+		<global-results>
+			<result name="noSession">/Pages/login/index.jsp</result>
+		</global-results>
+		
+	</package>
+
+	<package name="basePackge" namespace="/" extends="defaultPackage">
+		<action name="baseAction" class="edu.mcm.cas757.action.BaseAction"></action>
+		<action name="test" class="edu.mcm.cas757.action.Test"></action>
+	</package>
+
+	<!-- Test package -->
+	<package name="userManager" namespace="/userManager" extends="struts-default">
+		<action name="testAction" class="edu.mcm.cas757.action.TestAction">
+			<result>/Pages/success.jsp</result>
+		</action>
+		<action name="userAction" class="edu.mcm.cas757.action.UserAction">
+			<result name="success">/Pages/success.jsp</result>
+			<result name="error">/Pages/error.jsp</result>
+		</action>
+
+	</package>
+
+
+	<!-- Add packages here -->
+
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
+		name="myRequestParser" class="edu.mcm.cas757.action.RequestParseWrapper"
+		scope="default" optional="true" />
+	<constant name="struts.multipart.handler" value="myRequestParser" />
+
+</struts>
