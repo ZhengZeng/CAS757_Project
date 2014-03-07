@@ -3,47 +3,20 @@ package edu.mcm.cas757.action;
 import java.util.List;
 
 import org.apache.struts2.interceptor.SessionAware;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ModelDriven;
 
-import edu.mcm.cas757.common.MD5;
-import edu.mcm.cas757.dao.entity.Tuser;
-import edu.mcm.cas757.model.User;
-import edu.mcm.cas757.service.UserService;
+import edu.mcm.cas757.dao.entity.User;
+import edu.mcm.cas757.model.UserCriteria;
 
 
 @SuppressWarnings("serial")
-public class UserAction extends BaseAction implements ModelDriven<User>,SessionAware {
+public class UserAction extends BaseAction implements ModelDriven<UserCriteria>,SessionAware {
 	
-	private User user = new User();
+	private UserCriteria user = new UserCriteria();
 	private String pwd_login;
-	private String message;
-	private String sendto;
 	private String role;
 	private String userid;
-
-	@Autowired
-	private UserService userService;
-
-
-	public String getSendto() {
-		return sendto;
-	}
-
-	
-
-	public void setSendto(String sendto) {
-		this.sendto = sendto;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
 
 	public String getPwd_login() {
 		return pwd_login;
@@ -53,7 +26,6 @@ public class UserAction extends BaseAction implements ModelDriven<User>,SessionA
 		this.pwd_login = pwd_login;
 	}
 	
-
 	public String getUserid() {
 		return userid;
 	}
@@ -62,62 +34,40 @@ public class UserAction extends BaseAction implements ModelDriven<User>,SessionA
 		this.userid = userid;
 	}
 
-
-	@Override
-	public User getModel() {
+	public UserCriteria getModel() {
 		return user;
 	}
 
 	public String saveUser() {
-		userService.saveUser(user);
+		serviceLocator.getUserService().saveUser(user);
 		return "success";
 	}
 
-	// 登陆
+	//Test Login
 	public String loginUser() {
 
-		String pwd = MD5.MD5Encode(pwd_login);
-		/*
-		String hql = "from Tuser as a where a.email= '" + user.getUserName()
-				+ " ' and a.pwd= '" + pwd + "'";
+		//String pwd = MD5.MD5Encode(pwd_login);
+		String pwd = pwd_login;
+		
+		String hql = "from User as a where a.name= '" + user.getUserName()
+				+ " ' and a.password= '" + pwd + "'";
 
-		List<Tuser> userList = userService.findUser(hql);
+		List<User> userList = serviceLocator.getUserService().findUser(hql);
 		
 		if (userList.size() > 0) {			
-			Tuser loginUser = userList.get(0);
+			User loginUser = userList.get(0);
 			session.put("loginUser", loginUser);
-			return "login_success";
+			return "success";
 		} else
-			return "login_error";
-		*/
-		return "success";
+			return "error";
+		
+		//return "success";
 	}
 	
-	//ajax用户登录
-	public void ajaxLoginUser() {
-
-		String pwd = MD5.MD5Encode(pwd_login);
-		
-		String hql = "from Tuser as a where a.email= '" + user.getUserName()
-				+ " ' and a.pwd= '" + pwd + "'";
-
-		List<Tuser> userList = userService.findUser(hql);
-		
-		if (userList.size() > 0) {
-			Tuser loginUser = userList.get(0);
-			session.put("loginUser", loginUser);
-			super.writeJson("success");
-		} else
-			super.writeJson("error");
-	}
-
-
 
 	public String getRole() {
 		return role;
 	}
-
-
 
 	public void setRole(String role) {
 		this.role = role;

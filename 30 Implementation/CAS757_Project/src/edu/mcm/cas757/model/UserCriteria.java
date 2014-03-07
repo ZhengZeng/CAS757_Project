@@ -2,7 +2,7 @@ package edu.mcm.cas757.model;
 
 
 
-public class User implements java.io.Serializable {
+public class UserCriteria implements java.io.Serializable {
     private String role;
     private String pwd;
     private Integer userId;
@@ -53,7 +53,7 @@ public class User implements java.io.Serializable {
     /**
      * default constructor
      */
-    public User() {
+    public UserCriteria() {
     }
 
 }

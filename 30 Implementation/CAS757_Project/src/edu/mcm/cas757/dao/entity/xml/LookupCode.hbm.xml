@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="edu.mcm.cas757.dao.entity.LookupCode" table="lookup_code">
+		<id name="id" type="java.lang.Integer" column="ID">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="code" type="java.lang.Integer" column="Code">
+		</property>
+
+		<property name="codeName" type="string" column="CodeName"></property>
+
+		<property name="desc" type="string" column="Description"></property>
+
+		<property name="readable" type="java.lang.Boolean"
+			not-null="true" column="readable">
+		</property>
+
+		<property name="writable" type="java.lang.Boolean"
+			not-null="true" column="writable">
+		</property>
+
+		<property name="updatable" type="java.lang.Boolean"
+			not-null="true" column="updatable">
+		</property>
+
+		<property name="deletable" type="java.lang.Boolean"
+			not-null="true" column="deletable">
+		</property>
+
+		<property name="createDate" type="string" column="CreateDate">
+		</property>
+
+		<property name="updateDate" type="string" column="UpdateDate">
+		</property>
+
+		<property name="creatorId" type="java.lang.Integer"
+			column="CreatorId">
+		</property>
+
+		<property name="updateBy" type="java.lang.Integer"
+			column="UpdateBy">
+		</property>
+
+		<property name="defunct" type="java.lang.Boolean"
+			column="Defunct">
+		</property>
+	</class>
+
+</hibernate-mapping>

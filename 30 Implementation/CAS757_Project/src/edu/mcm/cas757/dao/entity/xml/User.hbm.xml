@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="edu.mcm.cas757.dao.entity.User" table="user">
+		<id name="id" type="java.lang.Integer" column="UserId">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="name" type="string" column="UserName">
+		</property>
+
+		<property name="password" type="string" column="password"></property>
+
+		<property name="comments" type="string" column="Comments"></property>
+
+		<property name="defunct" type="string" column="Defunct"></property>
+
+		<property name="createDate" type="java.util.Date"
+			column="CreateDate">
+		</property>
+
+		<property name="updateDate" type="java.util.Date"
+			column="UpdateDate">
+		</property>
+
+		<property name="creatorId" type="java.lang.Integer"
+			column="CreatorId">
+		</property>
+
+		<property name="updateBy" type="java.lang.Integer"
+			column="UpdateBy">
+		</property>
+
+		<many-to-one name="role" class="edu.mcm.cas757.dao.entity.Role"
+			column="Role" lazy="false" />
+
+		<many-to-one name="person" class="edu.mcm.cas757.dao.entity.Person"
+			column="PersonId" lazy="false" />
+
+	</class>
+
+</hibernate-mapping>

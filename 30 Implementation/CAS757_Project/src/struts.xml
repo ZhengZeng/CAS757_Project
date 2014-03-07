@@ -17,7 +17,7 @@
 			<interceptor-stack name="sessionStack">
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 				<interceptor-ref name="sessionInterceptor">
-					<param name="includeMethods">initIdeaType,showIdeaPhase,saveIdeaContent,addPhaseTextName,addPhaseText,upload,savePriceSurveyQuestion,saveQuestionnaireSurvey,vote,VoteForIdeaPhase,UnVoteForIdeaPhase,AddComment,AddCommentReply</param>
+					<param name="includeMethods">to_be_added</param>
 				</interceptor-ref>
 			</interceptor-stack>
 		</interceptors>

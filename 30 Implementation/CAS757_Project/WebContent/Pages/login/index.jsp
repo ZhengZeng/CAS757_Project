@@ -101,7 +101,7 @@
 			<form class="ui inline-login form"
 				action="userManager/userAction!loginUser.action" method="post">
 				<div class="field">
-					<label for="email"> E-mail </label> <input type="text" name="email"
+					<label for="email"> User Name </label> <input type="text" name="userName"
 						tabindex="1" class="filled">
 				</div>
 				<div class="field">

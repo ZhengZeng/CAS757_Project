@@ -1,17 +1,15 @@
 package edu.mcm.cas757.dao;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.transform.Transformers;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-@Repository("baseDao")
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.transform.Transformers;
+
+
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	private SessionFactory sessionFactory;
@@ -20,7 +18,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		return sessionFactory;
 	}
 
-	@Autowired
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
@@ -29,7 +26,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		return sessionFactory.getCurrentSession();
 	}
 
-	@Override
 	public Serializable save(T o) {
 		return this.getCurrentSession().save(o);
 	}
@@ -103,24 +99,14 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		}
 		return q.setFirstResult((page - 1) * rows).setMaxResults(rows).list();
 	}
-	
-	/**
-	 * 执行SQL语句，得到对象的List
-	 * @param sql
-	 * @param tclass
-	 * @return
-	 */
+
 	@Override
 	public List<T> findBySql(String sql, Class tclass) {
 		Query q = this.getCurrentSession().createSQLQuery(sql).addEntity(tclass);
 		return q.list();
 	}
 	
-	/**
-	 * 执行SQL语句，得到对象的List
-	 * @param sql
-	 * @return
-	 */
+
 	@Override
 	public List<Map> findMapListBySql(String sql) {
 		Query q = this.getCurrentSession().createSQLQuery(sql).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);

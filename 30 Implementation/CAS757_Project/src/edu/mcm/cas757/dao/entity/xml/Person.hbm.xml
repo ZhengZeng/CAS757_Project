@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="edu.mcm.cas757.dao.entity.Person" table="person">
+	
+		<id name="id" type="java.lang.Integer" column="PersonId">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="name" type="string" column="PersonName">
+		</property>
+
+		<property name="email" type="string" column="Email"></property>
+
+		<property name="voip" type="string" column="VoIP"></property>
+
+		<property name="phone" type="string" column="CellPhone"></property>
+
+		<property name="deptInfo" type="string" column="DepartmentInfo">
+		</property>
+
+		<property name="defunct" type="string" column="Defunct"></property>
+
+		<property name="createDate" type="string" column="CreateDate">
+		</property>
+
+		<property name="updateDate" type="string" column="UpdateDate">
+		</property>
+
+		<property name="creatorId" type="java.lang.Integer"
+			column="CreatorId">
+		</property>
+
+		<property name="updateBy" type="java.lang.Integer"
+			column="UpdateBy">
+		</property>
+
+	</class>
+
+</hibernate-mapping>
