@@ -56,9 +56,7 @@
 				// submit and check
 				$('#sub').click(function() {
 					var userNameCheck = document.getElementById("userNameCheckDiv").innerHTML;
-					var emailCheck = document.getElementById("emailCheckDiv").innerHTML;
 					var userName = document.getElementById("userName").value;
-					var email = document.getElementById("email").value;
 			
 					if (userName == "" || userName.length < 6 || userName.length > 16) {
 						var errorMsg = 'Please enter 6 - 16 characters';
@@ -110,7 +108,6 @@
 				</div>
 
 				<input style="width: 60px;"  type="submit"> 
-
 			</form>
 		</div>
 	</div>
