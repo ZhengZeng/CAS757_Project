@@ -53,7 +53,7 @@
 							$(this).triggerHandler("blur");
 						});// end blur
 			
-				// 提交，最终验证。
+				// submit and check
 				$('#sub').click(function() {
 					var userNameCheck = document.getElementById("userNameCheckDiv").innerHTML;
 					var emailCheck = document.getElementById("emailCheckDiv").innerHTML;
@@ -109,7 +109,7 @@
 						name="pwd_login" tabindex="2">
 				</div>
 
-				<input style="width: 60px;" class="tiny ui button submit" type="submit"> <i class="icon right-open"></i>
+				<input style="width: 60px;"  type="submit"> 
 
 			</form>
 		</div>
@@ -117,7 +117,7 @@
 
 
 	<footer class="main">
-	<div class="container">Footer is under construction.</div>
+	<div class="container"></div>
 	</footer>
 </body>
 </html>
