@@ -43,4 +43,7 @@ ServletRequestAware,ServletResponseAware,SessionAware{
 			this.session=arg0;
 		}
 
+		protected Map<String, Object> getSession() {
+			return this.session;
+		}
 }

@@ -17,9 +17,7 @@ public class UserServiceImpl implements IUserService {
     public void setBaseDao(BaseDao<User> baseDao) {
 		this.baseDao = baseDao;
 	}
-	/* (non-Javadoc)
-	 * @see edu.mcm.cas757.service.impl.IUserServiceImpl#saveUser(edu.mcm.cas757.model.User)
-	 */
+
     @Override
 	public void saveUser(UserCriteria user) {
         User t = new User();
@@ -27,9 +25,6 @@ public class UserServiceImpl implements IUserService {
         baseDao.save(t);
     }
     //Get user list
-    /* (non-Javadoc)
-	 * @see edu.mcm.cas757.service.impl.IUserServiceImpl#findUser(java.lang.String)
-	 */
     @Override
 	public List<User> findUser(String hql){
     	List<User> userList = baseDao.find(hql);
@@ -37,14 +32,24 @@ public class UserServiceImpl implements IUserService {
     }
     
     //Update user
-    /* (non-Javadoc)
-	 * @see edu.mcm.cas757.service.impl.IUserServiceImpl#updateUser(edu.mcm.cas757.dao.entity.Tuser)
-	 */
     @Override
 	public User updateUser(User user){
     	baseDao.update(user);
     	return user;
     }
-
+    
+	public User findUserByUsername(String username) {
+		String hql = "from User u where u.name='" + username +"'";
+		List<User> users = this.findUser(hql);
+		if (users != null && users.size() != 0) {
+			return users.get(0);
+		}
+		return null;
+	}
+	
+	public boolean isExist(UserCriteria user) {
+		User userFind = this.findUserByUsername(user.getUserName());
+		return (userFind != null && userFind.getPassword().equals(user.getPwd()));
+	}
     
 }

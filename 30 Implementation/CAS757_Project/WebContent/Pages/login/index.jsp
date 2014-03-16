@@ -1,3 +1,4 @@
+<%@ include file="/Pages/common/common.jsp"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
@@ -5,8 +6,6 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
 <head>
@@ -14,107 +13,48 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CAS 757 Project</title>
 
-<link href="css/site_before.css" media="all" rel="stylesheet"
-	type="text/css">
-<link href="css/home.css" media="screen" rel="stylesheet"
-	type="text/css">
+<link rel="stylesheet" type="text/css" href="<%=basePath %>styles/login.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath %>styles/boxy.css" />
+<script type="text/javascript" src="<%=basePath %>js/jquery.js"></script>	
+<script type="text/javascript" src="<%=basePath %>js/jquery.corner.js"></script>
+<script type="text/javascript" src="<%=basePath %>js/jquery.boxy.js"></script>
+<script type="text/javascript" src="<%=basePath %>js/login.js"></script>
+</head>
 
-<script src="js/jquery.js" type="text/javascript"></script>
-<script src="js/jquery.validator.js" type="text/javascript"></script>
-<script src="js/jquery.corners.min.js" type="text/javascript"></script>
-
-<style>
-.errorTip {
-	background-image: url(images/access_disallow.gif);
-	background-repeat: no-repeat;
-	padding-left: 16px;
-}
-
-.errorInput {
-	background-color: #FFCC33;
-}
-
-.validTip {
-	background-image: url('images/access_allow.gif');
-	background-repeat: no-repeat;
-	background-position: left top;
-	padding: 2px;
-}
-</style>
-<script type="text/javascript">
-			$(document).ready(function() {
-				$("#userName").blur(function() {
-					var $parent = $(this).parent();
-					$parent.find(".formtips").remove();
-			
-					}).keyup(function() {
-							$(this).triggerHandler("blur");
-						}).focus(function() {
-							$(this).triggerHandler("blur");
-						});// end blur
-			
-				// submit and check
-				$('#sub').click(function() {
-					var userNameCheck = document.getElementById("userNameCheckDiv").innerHTML;
-					var userName = document.getElementById("userName").value;
-			
-					if (userName == "" || userName.length < 6 || userName.length > 16) {
-						var errorMsg = 'Please enter 6 - 16 characters';
-						alert(errorMsg);
-						return false;
-					}
-			
-					if (userNameCheck == "&nbsp;&nbsp;&nbsp;Unavaliable user name") {
-						alert('Please use another name', 'Error Message');
-						userName.innerHTML = "";
-						return false;
-					}			
-				});
-			});
-			// Reset
-			var xmlHttp;
-			function createXMLHttpRequest() {
-				if (window.ActiveXObject) {
-					xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-				} else if (window.XMLHttpRequest) {
-					xmlHttp = new XMLHttpRequest();
-				}
-			}
-			
-			function ajaxCheckName() {
-				var userName = encodeURI(document.getElementById("userName").value);
-				createXMLHttpRequest();
-				xmlHttp.onreadystatechange = processajaxCheckName;
-				var url = "userManager/userAction!checkUserName.action?userName="
-						+ encodeURI(userName);
-				xmlHttp.open("GET", url, true);
-				xmlHttp.send(null);
-			}
-			
-	</script>
-<body id="home" class="purple alternate">
-	<header class="main"> </header>
-	<div class="container">
-		<div class="elements">
-			<form class="ui inline-login form"
-				action="userManager/userAction!loginUser.action" method="post">
-				<div class="field">
-					<label for="email"> User Name </label> <input type="text" name="userName"
-						tabindex="1" class="filled">
-				</div>
-				<div class="field">
-					<label for="password"> Password </label> <input type="password"
-						name="pwd_login" tabindex="2">
-				</div>
-
-				<input style="width: 60px;"  type="submit"> 
-			</form>
-		</div>
-	</div>
-
-
-	<footer class="main">
-	<div class="container"></div>
-	</footer>
+<div id="login">
+<s:form id="loginForm" validate="true">
+	<table align="center">
+		<tr>
+			<td class="title" colspan="2">Log in to your account</td>
+		</tr>
+		<tr>
+			<td colspan="2"><div id="errorArea">
+				<s:fielderror cssStyle="errorArea">
+					<s:param>error</s:param>
+				</s:fielderror>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="column">User Id</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="column" colspan="2"><input type="text" class="loginInput" id="username" name="username" />
+			</td>
+		</tr>
+		<tr>
+			<td class="column">Password</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="column" colspan="2"><input type="password" class="loginInput" id="password" name="pwd_login" />
+			</td>
+		</tr>
+		<tr>
+			<td><div id="loginBtn" class="default" title="Log in to your account"><span>Log-in</span></div></td>
+		</tr>		
+	</table>
+</s:form>
+</div>
 </body>
 </html>

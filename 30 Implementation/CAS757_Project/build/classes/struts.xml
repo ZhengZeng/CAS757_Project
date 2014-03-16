@@ -42,7 +42,7 @@
 		</action>
 		<action name="userAction" class="edu.mcm.cas757.action.UserAction">
 			<result name="success">/Pages/success.jsp</result>
-			<result name="error">/Pages/error.jsp</result>
+			<result name="error">/Pages/login/index.jsp</result>
 		</action>
 
 	</package>

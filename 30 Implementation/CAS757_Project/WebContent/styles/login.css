@@ -1,0 +1,80 @@
+body {
+	background: #828585 url(../image/bg.bmp) repeat-x;
+	font-family: serif;
+}
+
+div#login {
+	background: url(../image/login_bg.bmp) repeat-x;
+	border: 2px solid #DFFD4C;
+	margin-top: 210px;
+	margin-left: 540px;
+	width: 320px;
+	height: 240px;
+}
+
+td.title {
+	font: 21px Arial, Helvetica, sans-serif;
+	height: 30px;
+	margin-top: 30px;
+	margin-left: 30px;
+	padding-top: 3px;
+	padding-bottom: 7px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+div#errorArea {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	color: #E11A23;
+	font: 11px Arial, Helvetica, sans-serif;
+	height: 16px;
+}
+
+td.column {
+	font: 14px Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: left;
+	height: 18px;
+	color: #E9EBE0;
+}
+
+input.loginInput {
+	width: 231px;
+	height: 24px;
+}
+
+div.default {
+	width: 74px;
+	height: 24px;
+	cursor: pointer;
+	background: #239244;
+	font-weight: bold;
+	font-size: 15px;
+	color: #fff;
+	border: 1px dashed #2FDC61;
+}
+
+div.activited {
+	width: 74px;
+	height: 24px;
+	cursor: pointer;
+	background: url(../image/login_shift.png) no-repeat;
+	font-weight: bold;
+	font-size: 16px;
+	color: #fff;
+	border: 1px solid #2FDC61;
+}
+
+div#loginBtn span {
+	margin-left: 10px;
+}
+
+.select {
+	width: 146px;
+}
+
+.fielderror {
+	font-size: 14px;
+	font-weight: bold;
+}

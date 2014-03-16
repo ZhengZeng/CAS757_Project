@@ -14,5 +14,9 @@ public interface IUserService {
 
 	//Update user
 	public abstract User updateUser(User user);
+	
+	public User findUserByUsername(String username);
+	
+	public boolean isExist(UserCriteria user);
 
 }

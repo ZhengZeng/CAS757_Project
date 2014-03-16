@@ -1,11 +1,10 @@
 package edu.mcm.cas757.action;
 
-import java.util.List;
-
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ModelDriven;
 
+import edu.mcm.cas757.common.Constants;
 import edu.mcm.cas757.dao.entity.User;
 import edu.mcm.cas757.model.UserCriteria;
 
@@ -16,7 +15,7 @@ public class UserAction extends BaseAction implements ModelDriven<UserCriteria>,
 	private UserCriteria user = new UserCriteria();
 	private String pwd_login;
 	private String role;
-	private String userid;
+	private String username;
 
 	public String getPwd_login() {
 		return pwd_login;
@@ -26,12 +25,13 @@ public class UserAction extends BaseAction implements ModelDriven<UserCriteria>,
 		this.pwd_login = pwd_login;
 	}
 	
-	public String getUserid() {
-		return userid;
+
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public UserCriteria getModel() {
@@ -45,26 +45,34 @@ public class UserAction extends BaseAction implements ModelDriven<UserCriteria>,
 
 	//Test Login
 	public String loginUser() {
-
+		if (getSession().get(Constants.USER_INFO) != null) {
+			return SUCCESS;
+		}
 		//String pwd = MD5.MD5Encode(pwd_login);
-		String pwd = pwd_login;
+		user.setPwd(pwd_login);
+		user.setUserName(username);
+		if ("".equals(user.getUserName().trim())) {
+			addFieldError("user.name", "Please input your user name!");
+		} else if ("".equals(user.getPwd())) {
+			addFieldError("user.password", "Please input your password!");
+		}
 		
-		String hql = "from User as a where a.name= '" + user.getUserName()
-				+ " ' and a.password= '" + pwd + "'";
+		boolean isFind = serviceLocator.getUserService().isExist(user);
 
-		List<User> userList = serviceLocator.getUserService().findUser(hql);
-		
-		if (userList.size() > 0) {			
-			User loginUser = userList.get(0);
-			session.put("loginUser", loginUser);
-			return "success";
-		} else
+		if (!isFind) {
+			addFieldError("error", "The user name or password is wrong!");
 			return "error";
-		
-		//return "success";
+		}
+		User userEntity = serviceLocator.getUserService().findUserByUsername(username);
+		//user.setRole(userEntity.getRole().getName());
+
+		if (getSession().get(Constants.USER_INFO) != null) {
+			getSession().remove(Constants.USER_INFO);
+		}
+		getSession().put(Constants.USER_INFO, user);
+		return "success";
 	}
 	
-
 	public String getRole() {
 		return role;
 	}
