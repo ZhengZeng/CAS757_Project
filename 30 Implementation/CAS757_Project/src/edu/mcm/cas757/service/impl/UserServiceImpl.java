@@ -1,11 +1,14 @@
 package edu.mcm.cas757.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import edu.mcm.cas757.dao.BaseDao;
 import edu.mcm.cas757.dao.entity.User;
+import edu.mcm.cas757.model.BaseCriteria;
+import edu.mcm.cas757.model.PageDataModel;
 import edu.mcm.cas757.model.UserCriteria;
 import edu.mcm.cas757.service.IUserService;
 
@@ -20,8 +23,17 @@ public class UserServiceImpl implements IUserService {
 
     @Override
 	public void saveUser(UserCriteria user) {
-        User t = new User();
-        BeanUtils.copyProperties(user,t);
+		User t = new User();
+		t.setName(user.getUserName());
+		t.setPassword(user.getPwd());
+		t.setComments(user.getComments());
+		t.setRole(user.getRole());
+		t.setCreatorId(user.getUserId());
+		//user.setPerson(person);
+		t.setUpdateBy(user.getUserId());
+		t.setCreateDate(new Date());
+		t.setUpdateDate(new Date());
+		t.setDefunct("N");
         baseDao.save(t);
     }
     //Get user list
@@ -50,6 +62,34 @@ public class UserServiceImpl implements IUserService {
 	public boolean isExist(UserCriteria user) {
 		User userFind = this.findUserByUsername(user.getUserName());
 		return (userFind != null && userFind.getPassword().equals(user.getPwd()));
+	}
+	
+	public PageDataModel<User> getUserDataModule(BaseCriteria criteria) {
+		StringBuffer hql = new StringBuffer();
+		hql.append("from User u where u.defunct='N'");
+		hql.append(this.getOrder(criteria, "u"));
+
+		criteria.setQueryString(hql.toString());
+		PageDataModel<User> pageDataModule = null;
+		pageDataModule = baseDao.loadPageData(criteria);
+		return pageDataModule;
+	}
+	
+	protected String getOrder(BaseCriteria criteria) {
+		return getOrder(criteria, null);
+	}
+
+	protected String getOrder(BaseCriteria criteria, String alias) {
+		StringBuffer orderby = new StringBuffer(" ");
+		if (!StringUtils.isEmpty(criteria.getSortBy())) {
+			orderby.append("order by ");
+			if (!StringUtils.isEmpty(alias)) {
+				orderby.append(alias).append(".");
+			}
+			orderby.append(criteria.getSortBy()).append(" ").append(
+					criteria.getSortDir());
+		}
+		return orderby.toString();
 	}
     
 }

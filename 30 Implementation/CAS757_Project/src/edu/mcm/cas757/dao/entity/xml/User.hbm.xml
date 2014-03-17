@@ -33,8 +33,8 @@
 			column="UpdateBy">
 		</property>
 
-		<many-to-one name="role" class="edu.mcm.cas757.dao.entity.Role"
-			column="Role" lazy="false" />
+		<property name="role" type="java.lang.Integer"
+			column="Role" />
 
 		<many-to-one name="person" class="edu.mcm.cas757.dao.entity.Person"
 			column="PersonId" lazy="false" />

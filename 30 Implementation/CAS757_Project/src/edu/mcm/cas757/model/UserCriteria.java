@@ -2,17 +2,28 @@ package edu.mcm.cas757.model;
 
 
 
-public class UserCriteria implements java.io.Serializable {
-    private String role;
+@SuppressWarnings("serial")
+public class UserCriteria extends BaseCriteria implements java.io.Serializable {
+    private int role;
     private String pwd;
     private Integer userId;
+	private String userName;
+	private String comments;
     
-    public String getRole() {
+    public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
+	public int getRole() {
 		return role;
 	}
 
 
-	public void setRole(String role) {
+	public void setRole(int role) {
 		this.role = role;
 	}
 
@@ -45,9 +56,6 @@ public class UserCriteria implements java.io.Serializable {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
-
-	private String userName;
 
 
     /**

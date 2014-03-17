@@ -11,7 +11,7 @@ public class User extends BaseEntity {
 
 	private String password;
 
-	private Role role;
+	private Integer role;
 
 	private Person person;
 
@@ -44,11 +44,11 @@ public class User extends BaseEntity {
 		this.password = password;
 	}
 
-	public Role getRole() {
+	public Integer getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(Integer role) {
 		this.role = role;
 	}
 

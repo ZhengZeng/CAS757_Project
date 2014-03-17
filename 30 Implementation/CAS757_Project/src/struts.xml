@@ -7,7 +7,6 @@
 
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	<constant name="struts.devMode" value="true" />
-	<constant name="struts.multipart.saveDir" value="/upload" />
 
 	<package name="defaultPackage" extends="struts-default">
 		<interceptors>
@@ -25,30 +24,35 @@
 		<default-interceptor-ref name="sessionStack"></default-interceptor-ref>
 
 		<global-results>
-			<result name="noSession">/Pages/login/index.jsp</result>
+			<result name="noSession">/Pages/login/login.jsp</result>
 		</global-results>
 		
 	</package>
 
 	<package name="basePackge" namespace="/" extends="defaultPackage">
 		<action name="baseAction" class="edu.mcm.cas757.action.BaseAction"></action>
-		<action name="test" class="edu.mcm.cas757.action.Test"></action>
 	</package>
 
-	<!-- Test package -->
+	<!-- User package -->
 	<package name="userManager" namespace="/userManager" extends="struts-default">
-		<action name="testAction" class="edu.mcm.cas757.action.TestAction">
-			<result>/Pages/success.jsp</result>
-		</action>
 		<action name="userAction" class="edu.mcm.cas757.action.UserAction">
-			<result name="success">/Pages/success.jsp</result>
-			<result name="error">/Pages/login/index.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">../adminMgmt/adminAction!initAdminPage.action</param>
+			</result>
+			<result name="error">/Pages/login/login.jsp</result>
 		</action>
-
 	</package>
-
-
-	<!-- Add packages here -->
+	
+	<package name="adminMgmt" namespace="/adminMgmt" extends="struts-default">
+		<action name="adminAction" class="edu.mcm.cas757.action.AdminAction">
+			<result name="init_success">/Pages/admin/adminIndex.jsp</result>
+			<result name="create_success" type="redirectAction">
+				<param name="actionName">adminAction!searchUser.action</param>
+			</result>
+			<result name="search_success">/Pages/admin/adminIndex.jsp</result>
+			<result name="error">/Pages/error.jsp</result>
+		</action>
+	</package>
 
 	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
 		name="myRequestParser" class="edu.mcm.cas757.action.RequestParseWrapper"

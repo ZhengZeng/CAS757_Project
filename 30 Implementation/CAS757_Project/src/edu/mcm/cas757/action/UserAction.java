@@ -1,20 +1,15 @@
 package edu.mcm.cas757.action;
 
-import org.apache.struts2.interceptor.SessionAware;
-
-import com.opensymphony.xwork2.ModelDriven;
-
 import edu.mcm.cas757.common.Constants;
 import edu.mcm.cas757.dao.entity.User;
 import edu.mcm.cas757.model.UserCriteria;
 
 
 @SuppressWarnings("serial")
-public class UserAction extends BaseAction implements ModelDriven<UserCriteria>,SessionAware {
+public class UserAction extends BaseAction {
 	
 	private UserCriteria user = new UserCriteria();
 	private String pwd_login;
-	private String role;
 	private String username;
 
 	public String getPwd_login() {
@@ -61,27 +56,18 @@ public class UserAction extends BaseAction implements ModelDriven<UserCriteria>,
 
 		if (!isFind) {
 			addFieldError("error", "The user name or password is wrong!");
-			return "error";
+			return ERROR;
 		}
 		User userEntity = serviceLocator.getUserService().findUserByUsername(username);
-		//user.setRole(userEntity.getRole().getName());
+		user.setRole(userEntity.getRole());
+		user.setUserId(userEntity.getId());
 
 		if (getSession().get(Constants.USER_INFO) != null) {
 			getSession().remove(Constants.USER_INFO);
 		}
 		getSession().put(Constants.USER_INFO, user);
-		return "success";
+		return SUCCESS;
 	}
-	
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-	
-		
 	
 	
 

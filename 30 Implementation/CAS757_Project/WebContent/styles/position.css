@@ -1,0 +1,108 @@
+/* -- the width of field -- */
+
+.w-5 {
+	width: 4%;	
+}
+
+.w-10 {
+	width: 10%;	
+}
+
+.w-15 {
+	width: 15%;	
+}
+
+.w-18 {
+	width: 18%;	
+}
+
+.w-20 {
+	width: 20%;	
+}
+
+.w-60 {
+	width: 60px;	
+}
+
+.w-25 {
+	width: 25%;	
+}
+
+.w-30 {
+	width: 30%;
+}
+
+.w-34 {
+	width: 34%;
+}
+
+.w-240 {
+	width: 240px;	
+}
+
+.w-660 {
+	width: 660px;	
+}
+
+.w-850 {
+	width: 850px;	
+}
+
+/* -- the margin of the field -- */
+.mt-1 {
+	margin-top: 1%;	
+}
+
+.mt-2 {
+	margin-top: 2%;	
+}
+
+.mr-2 {
+	margin-right: 2px;
+}
+
+.ml-05 {
+	margin-left: 0.5%;	
+}
+
+.ml-3 {
+	margin-left: 3%;
+}
+
+.ml-5 {
+	margin-left: 5%;
+}
+
+.ml-8 {
+	margin-left: 8%;
+}
+
+.ml-25 {
+	margin-left: 25%;	
+}
+
+/* -- the padding of the field -- */
+.pl-20 {
+	padding-left: 20px;	
+}
+
+.pl-40 {
+	padding-left: 40px;	
+}
+
+/* -- the text align of the field -- */
+.ta-r {
+	text-align: right;
+}
+
+.ta-l {
+	text-align: left;	
+}
+
+/* -- the height of the field -- */
+.h-30 {
+	height: 30px;	
+}
+
+
+

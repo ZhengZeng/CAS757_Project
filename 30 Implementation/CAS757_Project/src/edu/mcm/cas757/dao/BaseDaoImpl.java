@@ -3,27 +3,31 @@ package edu.mcm.cas757.dao;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
 
+import edu.mcm.cas757.model.BaseCriteria;
+import edu.mcm.cas757.model.PageDataModel;
+
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	private SessionFactory sessionFactory;
 
+	public Session getCurrentSession() {
+		return sessionFactory.getCurrentSession();
+	}
+	
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
-	}
-
-	public Session getCurrentSession() {
-		return sessionFactory.getCurrentSession();
 	}
 
 	public Serializable save(T o) {
@@ -207,6 +211,37 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			}
 		}
 		return q.executeUpdate();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public PageDataModel<T> loadPageData(BaseCriteria criteria) {
+		PageDataModel<T> dataModule = new PageDataModel<T>(criteria);
+		Query query = getCurrentSession().createQuery(criteria.getQueryString());
+		if (!criteria.getParams().isEmpty()) {
+			Set<String> keys = criteria.getParams().keySet();
+			for (String key : keys) {
+				query.setParameter(key, criteria.getParams().get(key));
+			}
+		}
+		
+		List<T> currentPageData = query.setFirstResult(
+				(criteria.getPage() - 1) * criteria.getPageSize())
+				.setMaxResults(criteria.getPageSize()).list();
+		
+		dataModule.setPageData(currentPageData);
+		dataModule.setResultSize(getResultSize(criteria));
+		return dataModule;
+	}
+	
+	private int getResultSize(BaseCriteria criteria) {
+		Query query = getCurrentSession().createQuery(criteria.getCountQueryString());
+		if (!criteria.getParams().isEmpty()) {
+			Set<String> keys = criteria.getParams().keySet();
+			for (String key : keys) {
+				query.setParameter(key, criteria.getParams().get(key));
+			}
+		}
+		return ((Long) query.uniqueResult()).intValue();
 	}
 
 }

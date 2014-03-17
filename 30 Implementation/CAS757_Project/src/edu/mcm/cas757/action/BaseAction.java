@@ -2,48 +2,73 @@ package edu.mcm.cas757.action;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts2.interceptor.ServletRequestAware;
-import org.apache.struts2.interceptor.ServletResponseAware;
+import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import edu.mcm.cas757.model.BaseCriteria;
 import edu.mcm.cas757.service.ServiceLocator;
 
 @SuppressWarnings("serial")
-public class BaseAction extends ActionSupport implements 
-ServletRequestAware,ServletResponseAware,SessionAware{
-	    protected HttpServletRequest request;
+public class BaseAction extends ActionSupport implements RequestAware,SessionAware{
+	    private Map<String, Object> request;
 	    protected HttpServletResponse response;
 	    protected Map<String, Object> session;
 	    protected ServiceLocator serviceLocator;
+		private int page = 1;
+		private String sort;
+		private String dir;
 	    
+		public int getPage() {
+			return page;
+		}
+
+		public void setPage(int page) {
+			this.page = page;
+		}
+
+		public String getSort() {
+			return sort;
+		}
+
+		public void setSort(String sort) {
+			this.sort = sort;
+		}
+
+		public String getDir() {
+			return dir;
+		}
+
+		public void setDir(String dir) {
+			this.dir = dir;
+		}
+
 		public void setServiceLocator(ServiceLocator serviceLocator) {
 			this.serviceLocator = serviceLocator;
 		}
 
-		@Override
-		public void setServletRequest(HttpServletRequest arg0) {
-			// TODO Auto-generated method stub
-			this.request=arg0;
+		public void setRequest(Map<String, Object> request) {
+			this.request = request;
 		}
 
-		@Override
-		public void setServletResponse(HttpServletResponse arg0) {
-			// TODO Auto-generated method stub
-			this.response=arg0;
-		}
-
-		@Override
 		public void setSession(Map<String, Object> arg0) {
-			// TODO Auto-generated method stub
 			this.session=arg0;
 		}
 
 		protected Map<String, Object> getSession() {
 			return this.session;
+		}
+		
+		protected Map<String, Object> getRequest() {
+			return this.request;
+		}
+		
+		protected void initCriteria(BaseCriteria criteria) {
+			criteria.setPage(this.getPage());
+			criteria.setSortBy(this.getSort());
+			criteria.setSortDir(this.getDir());
 		}
 }

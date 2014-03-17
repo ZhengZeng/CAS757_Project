@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+import edu.mcm.cas757.model.BaseCriteria;
+import edu.mcm.cas757.model.PageDataModel;
+
 
 public interface BaseDao<T> {
 
@@ -95,4 +98,6 @@ public interface BaseDao<T> {
 	
 
 	public List<Map> findMapListBySql(String sql);
+	
+	public PageDataModel<T> loadPageData(BaseCriteria criteria);
 }

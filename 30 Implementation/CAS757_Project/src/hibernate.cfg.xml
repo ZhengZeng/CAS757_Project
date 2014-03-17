@@ -32,8 +32,6 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 
 		<mapping resource="edu/mcm/cas757/dao/entity/xml/Code.hbm.xml" />
-		<mapping resource="edu/mcm/cas757/dao/entity/xml/LookupCode.hbm.xml" />
-		<mapping resource="edu/mcm/cas757/dao/entity/xml/Role.hbm.xml" />
 		<mapping resource="edu/mcm/cas757/dao/entity/xml/Person.hbm.xml" />
 		<mapping resource="edu/mcm/cas757/dao/entity/xml/User.hbm.xml" />
 
