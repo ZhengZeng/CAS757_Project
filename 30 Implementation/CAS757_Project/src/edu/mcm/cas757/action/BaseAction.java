@@ -18,9 +18,8 @@ public class BaseAction extends ActionSupport implements RequestAware,SessionAwa
 	    protected HttpServletResponse response;
 	    protected Map<String, Object> session;
 	    protected ServiceLocator serviceLocator;
-		private int page = 1;
-		private String sort;
-		private String dir;
+		protected int page = 1;
+		protected String sort;
 	    
 		public int getPage() {
 			return page;
@@ -36,14 +35,6 @@ public class BaseAction extends ActionSupport implements RequestAware,SessionAwa
 
 		public void setSort(String sort) {
 			this.sort = sort;
-		}
-
-		public String getDir() {
-			return dir;
-		}
-
-		public void setDir(String dir) {
-			this.dir = dir;
 		}
 
 		public void setServiceLocator(ServiceLocator serviceLocator) {
@@ -69,6 +60,5 @@ public class BaseAction extends ActionSupport implements RequestAware,SessionAwa
 		protected void initCriteria(BaseCriteria criteria) {
 			criteria.setPage(this.getPage());
 			criteria.setSortBy(this.getSort());
-			criteria.setSortDir(this.getDir());
 		}
 }

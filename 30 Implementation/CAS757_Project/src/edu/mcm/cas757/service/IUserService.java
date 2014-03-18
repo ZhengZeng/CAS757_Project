@@ -19,6 +19,8 @@ public interface IUserService {
 	
 	public User findUserByUsername(String username);
 	
+	public User findUserById(int userId);
+	
 	public boolean isExist(UserCriteria user);
 	
 	public PageDataModel<User> getUserDataModule(BaseCriteria criteria);

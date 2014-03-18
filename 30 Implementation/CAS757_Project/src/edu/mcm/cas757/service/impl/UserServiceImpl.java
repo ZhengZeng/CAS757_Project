@@ -59,6 +59,15 @@ public class UserServiceImpl implements IUserService {
 		return null;
 	}
 	
+	public User findUserById(int userId) {
+		String hql = "from User u where u.id=" + userId +"";
+		List<User> users = this.findUser(hql);
+		if (users != null && users.size() != 0) {
+			return users.get(0);
+		}
+		return null;
+	}
+	
 	public boolean isExist(UserCriteria user) {
 		User userFind = this.findUserByUsername(user.getUserName());
 		return (userFind != null && userFind.getPassword().equals(user.getPwd()));

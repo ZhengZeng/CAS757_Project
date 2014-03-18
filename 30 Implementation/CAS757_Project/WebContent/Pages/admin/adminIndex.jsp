@@ -20,9 +20,10 @@
 <script type="text/javascript" src="<%=basePath %>js/adminIndex.js"></script>
 <script type="text/javascript">
 	$(function() {
-		var role = "<s:property value="#request.role"/>";
+		var role = "<s:property value="#request.user.role"/>";
 		$('#role').val(role);
-		var comments = "<s:property value="#request.txtCom"/>";
+		//alert(role);
+		var comments = "<s:property value="#request.user.comments"/>";
 		$('#comments').val(comments);
 		
 		var userNo = $('#userNo').val();
@@ -40,7 +41,7 @@
 						var userId = $(this).find("td:first").text();
 						with (document.getElementById("adminIndexForm")) {
 							method = "post";
-							action = "adminAction!createUser.action?page=${userCriteria.page}&userId=" + userId;
+							action = "adminAction!pickUser.action?page=${userInfo.page}&hidUserId=" + userId;
 							submit();
 						}
 					});
@@ -49,7 +50,7 @@
 						$('#userNo').val('');	
 						$('#username').val('');
 						$('#password').val('');
-						//$('#role').val(-1);	
+						$('#role').val(0);	
 						$('#comments').val('');	
 						$('#createBtn').removeAttr("disabled");
 						$('#updateBtn').attr("disabled", "disabled");
@@ -60,12 +61,18 @@
 						if(checkEmpty("username")) {
 							return false;
 						}
-						if(checkEmpty("password")) {
+						if(checkEmpty("password") ) {
 							return false;
 						}
-						if(checkEmpty("role")) {
+						if($('#role').val() == '0'){
+							alert("Please select a role.");
 							return false;
+						}else{
+							if(checkEmpty("role") ) {
+								return false;
+							}
 						}
+
 						with (document.getElementById("adminIndexForm")) {
 							method = "post";
 							action = "adminAction!createUser.action";
@@ -80,12 +87,17 @@
 						if(checkEmpty("password")) {
 							return false;
 						}
-						if(checkEmpty("role")) {
+						if($('#role').val() == '0'){
+							alert("Please select a role.");
 							return false;
+						}else{
+							if(checkEmpty("role") ) {
+								return false;
+							}
 						}
 						with (document.getElementById("adminIndexForm")) {
 							method = "post";
-							action = "adminAction!updateUser.action?page=${userCriteria.page}";
+							action = "adminAction!updateUser.action?page=${userInfo.page}";
 							submit();
 						}
 					});	
@@ -104,7 +116,7 @@
 						if (flag) {
 							with (document.getElementById("adminIndexForm")) {
 								method = "post";
-								action = "adminAction!delUser.action?page=${userCriteria.page}";
+								action = "adminAction!delUser.action?page=${userInfo.page}";
 								submit();
 							}
 						}
@@ -119,12 +131,12 @@
 <div class="ml-5 mt-2">
 <fieldset><legend>User Information</legend>
 <table class="w-850">
-<!--  
+  
 	<tr>
 		<td></td>
 		<td colspan="2"><input type="hidden" id="userNo" name="user.id" value='<s:property value="#request.user.id"/>' /></td>
 	</tr>
--->
+
 	<tr>
 		<td>User Name</td>
 		<td><input type="text" id="username" name="txtUserName" value='<s:property value="#request.user.name"/>' /></td>
@@ -140,13 +152,14 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2"><s:select id="role" list="#{1:'Doctor',2:'Nurse',3:'Admin'}" name="ddRole" label="Role" listKey="key" listValue="value" value="#request.user.role" />
+		<td colspan="2"><s:select id="role" list="#{0:'--Please Select--',1:'Doctor',2:'Nurse',3:'Admin'}" name="ddRole" label="Role" listKey="key" listValue="value" value="#request.user.role" />
 		</td>
 	</tr>
 	<tr>
 		<td>Comments</td>
 		<td colspan="2">
-		<s:textarea cssClass="textarea" id="comments" theme="simple" name="txtCom" rows="2" cols="20"></s:textarea>
+		<s:textarea cssClass="textarea" id="comments" theme="simple" name="txtCom" rows="2" cols="20" >
+		</s:textarea>
 		</td>
 	</tr>
 	<tr>

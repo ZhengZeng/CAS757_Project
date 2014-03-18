@@ -50,6 +50,13 @@
 				<param name="actionName">adminAction!searchUser.action</param>
 			</result>
 			<result name="search_success">/Pages/admin/adminIndex.jsp</result>
+			<result name="pick_success">/Pages/admin/adminIndex.jsp</result>
+			<result name="update_success" type="redirectAction">
+				<param name="actionName">adminAction!searchUser.action</param>
+			</result>
+			<result name="del_success" type="redirectAction">
+				<param name="actionName">adminAction!searchUser.action</param>
+			</result>
 			<result name="error">/Pages/error.jsp</result>
 		</action>
 	</package>
