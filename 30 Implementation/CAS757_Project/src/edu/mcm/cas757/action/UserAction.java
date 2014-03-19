@@ -40,9 +40,7 @@ public class UserAction extends BaseAction {
 
 	//Test Login
 	public String loginUser() {
-		if (getSession().get(Constants.USER_INFO) != null) {
-			return SUCCESS;
-		}
+
 		//String pwd = MD5.MD5Encode(pwd_login);
 		user.setPwd(pwd_login);
 		user.setUserName(username);
