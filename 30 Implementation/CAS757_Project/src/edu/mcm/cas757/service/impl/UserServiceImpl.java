@@ -59,6 +59,17 @@ public class UserServiceImpl implements IUserService {
 		return null;
 	}
 	
+	public PageDataModel<User> findPatientsByUsername(UserCriteria criteria) {
+		StringBuffer hql = new StringBuffer();
+		hql.append("from User u where u.defunct='N' and u.role = 4 ");
+		hql.append(criteria.getQueryString());
+		
+		criteria.setQueryString(hql.toString());
+		PageDataModel<User> pageDataModule = null;
+		pageDataModule = baseDao.loadPageData(criteria);
+		return pageDataModule;
+	}
+	
 	public User findUserById(int userId) {
 		String hql = "from User u where u.id=" + userId +"";
 		List<User> users = this.findUser(hql);
@@ -76,6 +87,17 @@ public class UserServiceImpl implements IUserService {
 	public PageDataModel<User> getUserDataModule(BaseCriteria criteria) {
 		StringBuffer hql = new StringBuffer();
 		hql.append("from User u where u.defunct='N'");
+		hql.append(this.getOrder(criteria, "u"));
+
+		criteria.setQueryString(hql.toString());
+		PageDataModel<User> pageDataModule = null;
+		pageDataModule = baseDao.loadPageData(criteria);
+		return pageDataModule;
+	}
+	
+	public PageDataModel<User> getPatientDataModule(UserCriteria criteria) {
+		StringBuffer hql = new StringBuffer();
+		hql.append("from User u where u.role = 4 and u.defunct='N'");
 		hql.append(this.getOrder(criteria, "u"));
 
 		criteria.setQueryString(hql.toString());

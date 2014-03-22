@@ -60,6 +60,15 @@
 			<result name="error">/Pages/error.jsp</result>
 		</action>
 	</package>
+	
+	<package name="nurse" namespace="/nurse" extends="struts-default">
+		<action name="nurseAction" class="edu.mcm.cas757.action.NurseAction">
+			<result name="searchPatient_init">/Pages/nurse/searchPatient.jsp</result>
+			<result name="search_success">/Pages/nurse/searchPatient.jsp</result>
+			<result name="pick_success">/Pages/nurse/bhvrObsInput.jsp</result>
+			<result name="error">/Pages/error.jsp</result>
+		</action>
+	</package>
 
 	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
 		name="myRequestParser" class="edu.mcm.cas757.action.RequestParseWrapper"

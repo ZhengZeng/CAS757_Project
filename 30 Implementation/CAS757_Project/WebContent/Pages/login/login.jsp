@@ -20,7 +20,15 @@
 <script type="text/javascript" src="<%=basePath %>js/jquery.boxy.js"></script>
 <script type="text/javascript" src="<%=basePath %>js/login.js"></script>
 </head>
+<body>
+<div id="header" style="background-color:#FFA500;">
+<h1 style="margin-bottom:0;align:center" >Acute Psychiatric Inpatient Observation System</h1></div>
 
+<div id="menu" style="background-color:#FFD700;height:500px;width:150px;float:left;">
+<b>Menu</b><br>
+Admin Page<br>
+Doctor Page<br>
+Nurse Page</div>
 <div id="login">
 <s:form id="loginForm" validate="true">
 	<table align="center">
@@ -56,5 +64,7 @@
 	</table>
 </s:form>
 </div>
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+Copyright CAS 757 Group 6</div>
 </body>
 </html>

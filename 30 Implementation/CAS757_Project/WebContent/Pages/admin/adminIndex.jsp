@@ -126,6 +126,16 @@
 </script>
 </head>
 <body>
+<div id="header" style="background-color:#FFA500;">
+<h1 style="margin-bottom:0;align:center" >Acute Psychiatric Inpatient Observation System</h1></div>
+
+<div id="menu" style="background-color:#FFD700;height:620px;width:150px;float:left;">
+<b>Menu</b><br>
+<a href="/CAS757_Project/">Login Page</a><br>
+Doctor Module<br>
+<a href="/CAS757_Project/nurse/nurseAction!initSearchPatient.action">Nurse Module</a><br>
+</br></div>
+<div>
 <form id="adminIndexForm">
 <div class="title">Administrator</div>
 <div class="ml-5 mt-2">
@@ -152,7 +162,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2"><s:select id="role" list="#{0:'--Please Select--',1:'Doctor',2:'Nurse',3:'Admin'}" name="ddRole" label="Role" listKey="key" listValue="value" value="#request.user.role" />
+		<td colspan="2"><s:select id="role" list="#{0:'--Please Select--',1:'Doctor',2:'Nurse',3:'Admin',4:'Patient'}" name="ddRole" label="Role" listKey="key" listValue="value" value="#request.user.role" />
 		</td>
 	</tr>
 	<tr>
@@ -182,7 +192,9 @@
 		<display:column class="content" property="comments" titleKey="Comments" />
 	</display:table>
 </div>
-
 </form>
+</div>
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+Copyright CAS 757 Group 6</div>
 </body>
 </html>

@@ -22,5 +22,12 @@
 			<ref bean="serviceLocator" />
 		</property>
 	</bean>
+	
+	<bean id="nurseAction"
+		class="edu.mcm.cas757.action.NurseAction" scope="prototype">
+		<property name="serviceLocator">
+			<ref bean="serviceLocator" />
+		</property>
+	</bean>
 
 </beans>

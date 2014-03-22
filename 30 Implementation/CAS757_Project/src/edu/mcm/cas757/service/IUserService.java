@@ -24,5 +24,9 @@ public interface IUserService {
 	public boolean isExist(UserCriteria user);
 	
 	public PageDataModel<User> getUserDataModule(BaseCriteria criteria);
+	
+	public PageDataModel<User> getPatientDataModule(UserCriteria criteria);
+	
+	public PageDataModel<User> findPatientsByUsername(UserCriteria criteria);
 
 }
