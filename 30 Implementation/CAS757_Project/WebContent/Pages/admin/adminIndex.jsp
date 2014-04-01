@@ -131,9 +131,8 @@
 
 <div id="menu" style="background-color:#FFD700;height:620px;width:150px;float:left;">
 <b>Menu</b><br>
-<a href="/CAS757_Project/">Login Page</a><br>
-Doctor Module<br>
-<a href="/CAS757_Project/nurse/nurseAction!initSearchPatient.action">Nurse Module</a><br>
+<a href="/CAS757_Project/">Logout</a><br>
+<a href="/CAS757_Project/adminMgmt/adminAction!initAdminPage.action">Admin Page</a><br>
 </br></div>
 <div>
 <form id="adminIndexForm">

@@ -42,9 +42,8 @@
 
 <div id="menu" style="background-color:#FFD700;height:1460px;width:150px;float:left;">
 <b>Menu</b><br>
-<a href="/CAS757_Project/">Login Page</a><br>
-Doctor Page<br>
-<a href="/CAS757_Project/nurse/nurseAction!initSearchPatient.action">Nurse Module</a><br>
+<a href="/CAS757_Project/">LogOut</a><br>
+<a href="/CAS757_Project/nurse/nurseAction!initSearchPatient.action">Nurse Page</a><br>
 </div>
 <div>
 <form id="searchPatientForm">

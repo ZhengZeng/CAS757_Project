@@ -25,7 +25,7 @@
 						var patientId = $(this).find("td:first").text();
 						with (document.getElementById("searchPatientForm")) {
 							method = "post";
-							action = "nurseAction!pickPatient.action?hidPatientId=" + patientId;
+							action = "doctorAction!pickPatient.action?hidPatientId=" + patientId;
 							submit();
 						}
 					});
@@ -37,7 +37,7 @@
 
 						with (document.getElementById("searchPatientForm")) {
 							method = "post";
-							action = "nurseAction!searchPatient.action";
+							action = "doctorAction!searchPatient.action";
 							submit();
 						}
 					});	
@@ -47,13 +47,12 @@
 </head>
 <body>
 <div id="header" style="background-color:#FFA500;">
-<h1 style="margin-bottom:0;align:center" >Acute Psychiatric Inpatient Observation System</h1></div>
+<h1 style="margin-bottom:0;align:center" >Doctor - Acute Psychiatric Inpatient Observation System</h1></div>
 
 <div id="menu" style="background-color:#FFD700;height:620px;width:150px;float:left;">
 <b>Menu</b><br>
 <a href="/CAS757_Project/">Logout</a><br>
-
-<a href="/CAS757_Project/nurse/nurseAction!initSearchPatient.action">Nurse Page</a><br>
+<a href="/CAS757_Project/doctor/doctorAction!initSearchPatient.action">Doctor Page</a>
 </div>
 <div>
 <form id="searchPatientForm">
@@ -77,7 +76,7 @@
 </div>
 
 <div class="ml-5 mt-2">
-	<display:table class="spreadsheet" id="patientList" name="patients" requestURI="nurseAction!searchPatient.action">
+	<display:table class="spreadsheet" id="patientList" name="patients" requestURI="doctorAction!searchPatient.action">
 		<display:column class="content" property="id" titleKey="SN" sortable="true" />
 		<display:column class="content" property="name" titleKey="Name" sortable="true" />
 		<display:column class="content" property="comments" titleKey="Comments" />

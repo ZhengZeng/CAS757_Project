@@ -64,7 +64,22 @@ public class UserAction extends BaseAction {
 			getSession().remove(Constants.USER_INFO);
 		}
 		getSession().put(Constants.USER_INFO, user);
-		return SUCCESS;
+		String rdAction = "";
+		switch(user.getRole()){
+		case 1:
+			rdAction = "doctor_login";
+			break;
+		case 2:
+			rdAction = "nurse_login";
+			break;
+		case 3:
+			rdAction = "admin_login";
+			break;
+		default:
+			rdAction = "error";
+			break;
+		}
+		return rdAction;
 	}
 	
 	

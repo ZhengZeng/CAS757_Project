@@ -36,8 +36,14 @@
 	<!-- User package -->
 	<package name="userManager" namespace="/userManager" extends="struts-default">
 		<action name="userAction" class="edu.mcm.cas757.action.UserAction">
-			<result name="success" type="redirectAction">
+			<result name="admin_login" type="redirectAction">
 				<param name="actionName">../adminMgmt/adminAction!initAdminPage.action</param>
+			</result>
+			<result name="nurse_login" type="redirectAction">
+				<param name="actionName">../nurse/nurseAction!initSearchPatient.action</param>
+			</result>
+			<result name="doctor_login" type="redirectAction">
+				<param name="actionName">../doctor/doctorAction!initSearchPatient.action</param>
 			</result>
 			<result name="error">/Pages/login/login.jsp</result>
 		</action>
@@ -66,6 +72,15 @@
 			<result name="searchPatient_init">/Pages/nurse/searchPatient.jsp</result>
 			<result name="search_success">/Pages/nurse/searchPatient.jsp</result>
 			<result name="pick_success">/Pages/nurse/bhvrObsInput.jsp</result>
+			<result name="error">/Pages/error.jsp</result>
+		</action>
+	</package>
+	
+	<package name="doctor" namespace="/doctor" extends="struts-default">
+		<action name="doctorAction" class="edu.mcm.cas757.action.DoctorAction">
+			<result name="searchPatient_init">/Pages/doctor/searchPatient.jsp</result>
+			<result name="search_success">/Pages/doctor/searchPatient.jsp</result>
+			<result name="pick_success">/Pages/doctor/patientObserve.jsp</result>
 			<result name="error">/Pages/error.jsp</result>
 		</action>
 	</package>
