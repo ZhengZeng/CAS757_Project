@@ -22,11 +22,21 @@
 			<ref bean="baseDao" />
 		</property>
 	</bean>
+	
+	<bean id="obsDataService"
+		class="edu.mcm.cas757.service.impl.ObsDataServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
 
 	<bean id="serviceLocator"
 		class="edu.mcm.cas757.service.ServiceLocator">
 		<property name="userService">
 			<ref bean="userService" />
+		</property>
+		<property name="obsDataService">
+			<ref bean="obsDataService" />
 		</property>
 	</bean>
 

@@ -72,6 +72,9 @@
 			<result name="searchPatient_init">/Pages/nurse/searchPatient.jsp</result>
 			<result name="search_success">/Pages/nurse/searchPatient.jsp</result>
 			<result name="pick_success">/Pages/nurse/bhvrObsInput.jsp</result>
+			<result name="saveObs_success" type="redirectAction">
+				<param name="actionName">nurseAction!initSearchPatient.action</param>
+			</result>				
 			<result name="error">/Pages/error.jsp</result>
 		</action>
 	</package>
@@ -80,7 +83,7 @@
 		<action name="doctorAction" class="edu.mcm.cas757.action.DoctorAction">
 			<result name="searchPatient_init">/Pages/doctor/searchPatient.jsp</result>
 			<result name="search_success">/Pages/doctor/searchPatient.jsp</result>
-			<result name="pick_success">/Pages/doctor/patientObserve.jsp</result>
+			<result name="pick_success">/Pages/doctor/patientObserve.jsp</result>		
 			<result name="error">/Pages/error.jsp</result>
 		</action>
 	</package>

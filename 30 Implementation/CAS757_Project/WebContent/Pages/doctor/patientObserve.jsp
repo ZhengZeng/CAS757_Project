@@ -32,6 +32,13 @@
 <div>
 <form id="patientChartForm">
 <div class="title">Patient Chart</div>
+<div class="ml-5 mt-2">
+<fieldset>
+	<legend><b>Patient Information</b></legend>
+
+	<td>Patient Name</td>
+	<td><input type="text" id="patientname" name="txtPatientName" /></td>
+
 <br></br>
 <div class="ml-5 mt-2" id="graph" >Loading...</div>
 <script type="text/javascript">
@@ -85,10 +92,13 @@
 
 
 <div class="ml-5 mt-2">
-	<display:table class="spreadsheet" id="patientList" name="patients" requestURI="doctorAction!searchPatient.action">
-		<display:column class="content" property="id" titleKey="SN" sortable="true" />
-		<display:column class="content" property="name" titleKey="Name" sortable="true" />
-		<display:column class="content" property="comments" titleKey="Comments" />
+	<display:table class="spreadsheet" id="obsDataList" name="obsData" requestURI="doctorAction!pickPatient.action">
+		<display:column class="content" property="createDate" titleKey="Date" sortable="true" />
+		<display:column class="content" property="emtDisV" titleKey="Emotional Distress"  />
+		<display:column class="content" property="withdV" titleKey="Widthdraw"  />
+		<display:column class="content" property="disinhV" titleKey="Disinhibition" />
+		<display:column class="content" property="psychV" titleKey="Psychosis"  />
+		<display:column class="content" property="congImpV" titleKey="Congnitive Impairment" />
 	</display:table>
 </div>
 </form>

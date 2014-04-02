@@ -70,24 +70,24 @@
 	<legend><b>Emotional Distress</b></legend>
 	<table class="w-850">
 		<tr>
-			<td> <s:checkbox id="fearfulness" name="fearfulness" label="Fearfulness" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="sadness" name="sadness" label="Sadness" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="tension" name="tension" label="Tension" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="despair" name="despair" label="Despair" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="mentalang" name="mentalang" label="Mental Anguish" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="fearfulness" name="emtDis" label="Fearfulness" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="sadness" name="emtDis" label="Sadness" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="tension" name="emtDis" label="Tension" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="despair" name="emtDis" label="Despair" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="mentalang" name="emtDis" label="Mental Anguish" value="false" fieldValue="20"/></td>
 		</tr>
 	</table>
 </fieldset>
 
 <fieldset>
-	<legend><b>Widthdraw</b></legend>
+	<legend><b>Withdraw</b></legend>
 	<table class="w-850">
 		<tr>
-			<td> <s:checkbox id="inaction" name="inaction" label="Inaction" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="isolation" name="isolation" label="Sadness" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="seclusivenes" name="seclusivenes" label="Seclusivenes" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="passivity" name="passivity" label="Passivity" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="avoidance" name="avoidance" label="Avoidance" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="inaction" name="withdraw" label="Inaction" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="isolation" name="withdraw" label="Sadness" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="seclusivenes" name="withdraw" label="Seclusivenes" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="passivity" name="withdraw" label="Passivity" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="avoidance" name="withdraw" label="Avoidance" value="false" fieldValue="20"/></td>
 		</tr>
 	</table>
 </fieldset>
@@ -96,13 +96,13 @@
 	<legend><b>Disinhibition</b></legend>
 	<table class="w-850">
 		<tr>
-			<td> <s:checkbox id="fearfulness_d" name="fearfulness_d" label="Fearfulness" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="sadness_d" name="sadness_d" label="Sadness" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="tension_d" name="tension_d" label="Tension" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="despair_d" name="despair_d" label="Despair" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="isolation" name="isolation" label="Isolation" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="passivity_d" name="passivity_d" label="Passivity" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="avoidance_d" name="avoidance_d" label="Avoidance" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="fearfulness_d" name="disinhibition" label="Fearfulness" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="sadness_d" name="disinhibition" label="Sadness" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="tension_d" name="disinhibition" label="Tension" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="despair_d" name="disinhibition" label="Despair" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="isolation" name="disinhibition" label="Isolation" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="passivity_d" name="disinhibition" label="Passivity" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="avoidance_d" name="disinhibition" label="Avoidance" value="false" fieldValue="20"/></td>
 		</tr>
 	</table>
 </fieldset>
@@ -111,11 +111,11 @@
 	<legend><b>Psychosis</b></legend>
 	<table class="w-850">
 		<tr>
-			<td> <s:checkbox id="fearfulness_p" name="fearfulness_p" label="Fearfulness" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="sadness_p" name="sadness_p" label="Sadness" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="tension_p" name="tension_p" label="Tension" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="despair_p" name="despair_p" label="Despair" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="isolation_p" name="isolation_p" label="Isolation" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="fearfulness_p" name="psychosis" label="Fearfulness" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="sadness_p" name="psychosis" label="Sadness" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="tension_p" name="psychosis" label="Tension" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="despair_p" name="psychosis" label="Despair" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="isolation_p" name="psychosis" label="Isolation" value="false" fieldValue="20"/></td>
 		</tr>
 	</table>
 </fieldset>
@@ -124,11 +124,11 @@
 	<legend><b>Congnitive Impairment</b></legend>
 	<table class="w-850">
 		<tr>
-			<td> <s:checkbox id="fearfulness_c" name="fearfulness_c" label="Fearfulness" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="sadness_c" name="sadness_c" label="Sadness" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="tension_c" name="tension_c" label="Tension" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="despair_c" name="despair_c" label="Despair" value="false" fieldValue="20"/></td>
-			<td> <s:checkbox id="mentalang_c" name="mentalang_c" label="Mental Anguish" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="fearfulness_c" name="congImp" label="Fearfulness" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="sadness_c" name="congImp" label="Sadness" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="tension_c" name="congImp" label="Tension" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="despair_c" name="congImp" label="Despair" value="false" fieldValue="20"/></td>
+			<td> <s:checkbox id="mentalang_c" name="congImp" label="Mental Anguish" value="false" fieldValue="20"/></td>
 		</tr>
 	</table>
 </fieldset>

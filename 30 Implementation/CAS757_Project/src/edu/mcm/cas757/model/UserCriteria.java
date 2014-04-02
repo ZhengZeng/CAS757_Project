@@ -1,7 +1,5 @@
 package edu.mcm.cas757.model;
 
-
-
 @SuppressWarnings("serial")
 public class UserCriteria extends BaseCriteria implements java.io.Serializable {
     private int role;
