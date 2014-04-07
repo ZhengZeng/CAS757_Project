@@ -36,8 +36,8 @@
 <fieldset>
 	<legend><b>Patient Information</b></legend>
 
-	<td>Patient Name</td>
-	<td><input type="text" id="patientname" name="txtPatientName" /></td>
+	<td>Patient Name : </td>
+	<td><input type="text" id="patientname" name="txtPatientName"  style="background:transparent;border:1px solid #ffffff" value='<s:property value="#request.patientEntity.name"/>' /></td>
 
 <br></br>
 <div class="ml-5 mt-2" id="graph" >Loading...</div>

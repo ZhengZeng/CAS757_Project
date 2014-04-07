@@ -117,6 +117,7 @@ public class NurseAction extends BaseAction {
 		if(patientEntity != null){
 			System.out.println("--- Pick PatientName:" + patientEntity.getName());
 			getSession().put(Constants.CURR_PATIENT, patientEntity);
+			getRequest().put(Constants.CURR_PATIENT, patientEntity);
 			return "pick_success";
 		}else 
 			return ERROR;

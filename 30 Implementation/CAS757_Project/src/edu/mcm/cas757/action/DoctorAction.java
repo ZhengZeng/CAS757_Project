@@ -71,7 +71,7 @@ public class DoctorAction extends BaseAction {
 			if(dataModule != null){
 				getRequest().put("obsData", dataModule);
 			}
-			
+			getRequest().put("patient", patientEntity);
 			
 			return "pick_success";
 		}else 
