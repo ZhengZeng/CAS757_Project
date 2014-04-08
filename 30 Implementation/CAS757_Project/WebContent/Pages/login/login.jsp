@@ -26,9 +26,9 @@
 
 <div id="menu" style="background-color:#FFD700;height:500px;width:150px;float:left;">
 <b>Menu</b><br>
-Admin Page<br>
-Doctor Page<br>
-Nurse Page</div>
+Admin Module<br>
+Doctor Module<br>
+Nurse Module</div>
 <div id="login">
 <s:form id="loginForm" validate="true">
 	<table align="center">

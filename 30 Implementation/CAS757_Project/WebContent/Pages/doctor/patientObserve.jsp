@@ -42,17 +42,32 @@
 <br></br>
 <div class="ml-5 mt-2" id="graph" >Loading...</div>
 <script type="text/javascript">
-	
+	//for demo purpose:
 	var myChart = new JSChart('graph', 'line');
-	myChart.setDataArray([[1, 80],[2, 40],[3, 60],[4, 65],[5, 50],[6, 50],[7, 60],[8, 80],[9, 150],[10, 100]], 'blue');
-	myChart.setDataArray([[1, 100],[2, 55],[3, 80],[4, 115],[5, 80],[6, 70],[7, 30],[8, 130],[9, 160],[10, 170]], 'green');
-	myChart.setDataArray([[1, 150],[2, 25],[3, 100],[4, 80],[5, 20],[6, 65],[7, 0],[8, 155],[9, 190],[10, 200]], 'gray');
-	myChart.setDataArray([[1, 100],[2, 55],[3, 80],[4, 70],[5, 80],[6, 70],[7, 30],[8, 60],[9, 160],[10, 100]], 'red');
-	myChart.setDataArray([[1, 150],[2, 25],[3, 80],[4, 80],[5, 50],[6, 90],[7, 0],[8, 155],[9, 190],[10, 150]], 'purple');	
+	var demoId = "<s:property value="#request.patientEntity.comments"/>";
+	if(demoId == "stay normal"){
+		myChart.setDataArray([[1, 80],[2, 40],[3, 60],[4, 65],[5, 50],[6, 50],[7, 60],[8, 80],[9, 50],[10, 60]], 'blue');
+		myChart.setDataArray([[1, 70],[2, 55],[3, 70],[4, 70],[5, 80],[6, 70],[7, 30],[8, 30],[9, 60],[10, 60]], 'green');
+		myChart.setDataArray([[1, 50],[2, 25],[3, 60],[4, 60],[5, 20],[6, 65],[7, 10],[8, 55],[9, 90],[10, 30]], 'gray');
+		myChart.setDataArray([[1, 70],[2, 55],[3, 80],[4, 70],[5, 80],[6, 70],[7, 30],[8, 60],[9, 60],[10, 40]], 'red');
+		myChart.setDataArray([[1, 90],[2, 25],[3, 80],[4, 50],[5, 50],[6, 90],[7, 30],[8, 20],[9, 10],[10, 20]], 'purple');	
+	}else if(demoId == "getting better"){
+		myChart.setDataArray([[1, 60],[2, 40],[3, 60],[4, 35],[5, 20],[6, 50],[7, 60],[8, 40],[9, 15],[10, 10]], 'blue');
+		myChart.setDataArray([[1, 70],[2, 55],[3, 80],[4, 75],[5, 30],[6, 70],[7, 30],[8, 30],[9, 10],[10, 15]], 'green');
+		myChart.setDataArray([[1, 80],[2, 25],[3, 70],[4, 30],[5, 20],[6, 65],[7, 5],[8, 15],[9, 20],[10, 25]], 'gray');
+		myChart.setDataArray([[1, 80],[2, 55],[3, 70],[4, 75],[5, 55],[6, 70],[7, 30],[8, 20],[9, 60],[10, 30]], 'red');
+		myChart.setDataArray([[1, 90],[2, 25],[3, 85],[4, 60],[5, 50],[6, 90],[7, 10],[8, 35],[9, 40],[10, 25]], 'purple');			
+	}else{
+		myChart.setDataArray([[1, 10],[2, 40],[3, 60],[4, 65],[5, 50],[6, 50],[7, 70],[8, 80],[9, 65],[10, 90]], 'blue');
+		myChart.setDataArray([[1, 20],[2, 55],[3, 30],[4, 55],[5, 80],[6, 70],[7, 75],[8, 90],[9, 60],[10, 70]], 'green');
+		myChart.setDataArray([[1, 15],[2, 28],[3, 15],[4, 80],[5, 60],[6, 45],[7, 60],[8, 75],[9, 90],[10, 65]], 'gray');
+		myChart.setDataArray([[1, 40],[2, 55],[3, 60],[4, 70],[5, 80],[6, 70],[7, 55],[8, 60],[9, 75],[10, 90]], 'red');
+		myChart.setDataArray([[1, 20],[2, 25],[3, 10],[4, 20],[5, 25],[6, 30],[7, 10],[8, 35],[9, 70],[10, 75]], 'purple');			
+	}
 	myChart.setSize(800, 400);
 	myChart.setAxisValuesNumberY(5);
 	myChart.setIntervalStartY(0);
-	myChart.setIntervalEndY(200);
+	myChart.setIntervalEndY(100);
 	myChart.setLabelX([2,'p1']);
 	myChart.setLabelX([4,'p2']);
 	myChart.setLabelX([6,'p3']);
