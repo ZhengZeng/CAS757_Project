@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="<%=basePath %>styles/position.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>styles/displaytag.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>styles/admin.css" />
-<title>Administrator</title>
+<title>Doctor</title>
 <script type="text/javascript" src="<%=basePath %>js/jquery.js"></script>
 <script type="text/javascript" src="<%=basePath %>js/adminIndex.js"></script>
 <script type="text/javascript">
